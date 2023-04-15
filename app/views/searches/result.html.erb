@@ -1,0 +1,24 @@
+<div class = "search_result_container">
+  <h2>検索結果 <%= @count %>件</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>施設名</th>
+        <th>住所</th>
+        <th>施設詳細</th>
+        <th>料金(/泊)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td><%= link_to room.name, room_path(room) %></a></td>
+          <td><%= room.address %></td>
+          <td><%= room.detail %></td>
+          <td>¥<%= room.price.to_i.to_s(:delimited) %>~</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

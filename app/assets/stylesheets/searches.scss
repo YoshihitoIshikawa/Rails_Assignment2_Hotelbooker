@@ -1,0 +1,17 @@
+// Place all the styles related to the searches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.search_result_container{
+  margin: auto;
+  width: 80%;
+}
+
+td{
+  padding: 20px 0;
+  background-color: rgb(213, 255, 255);
+}
+
+th{
+  background-color: rgb(106, 249, 254);
+}

@@ -1,0 +1,49 @@
+<div class = "room_container">
+  <%= render "shared/error", obj: @reservation %>
+
+  <h2>施設詳細</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>画像</th>
+        <th>施設名</th>
+        <th>施設詳細</th>
+        <th>料金(/泊)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class = "room_image">
+          <% if @room.image? %>
+            <%= image_tag @room.image.url %>
+          <% else %>
+            <%= image_tag ("https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png") %>
+          <% end %>
+        </td>
+        <td><%= @room.name %></td>
+        <td><%= @room.detail %></td>
+        <td>¥<%= @room.price.to_s(:delimited) %>~</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class = "reservation_form">
+    <h4>この部屋を予約する</h4>
+    <%= form_with model: @reservation,url: confirm_reservations_path do |f| %>
+      <%= f.label :check_in, "チェックイン日(必須)" %>
+      <%= f.date_field :check_in %>
+      <%= f.label :check_out, "チェックアウト日(必須)" %>
+      <%= f.date_field :check_out %>
+      <%= f.label :number_of_people, "人数(必須)" %>
+      <%= f.text_field :number_of_people,placeholder: "半角で人数を入力" %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <% if user_signed_in? %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+      <% end %>
+      <%= f.submit "予約確認画面へ", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <%= link_to "前のページへ戻る", :back %>
+</div>

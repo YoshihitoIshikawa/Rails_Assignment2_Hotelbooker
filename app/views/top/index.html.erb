@@ -1,0 +1,24 @@
+<div class = "body">
+  <div class = "top_container">
+    <h1>Have A Nice Stay!</h1><br>
+    <h2>最高の宿を見つけよう♪</h2>
+    <div = "search_form">
+    <%= search_form_for @q,url: searches_result_path do |f| %>
+
+      <div class="field">
+        <%= f.label :address_cont, "エリア検索" %><br>
+        <%= f.search_field :address_cont,placeholder: "エリアで検索" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :name_or_detail_cont, "フリーワード検索" %><br>
+        <%= f.search_field :name_or_detail_cont, placeholder: "施設名・施設詳細で検索" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "検索",class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
