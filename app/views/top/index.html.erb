@@ -2,7 +2,7 @@
   <div class = "top_container">
     <h1>Have A Nice Stay!</h1><br>
     <h2>最高の宿を見つけよう♪</h2>
-    <div = "search_form">
+    <div = "search_form_container">
     <%= search_form_for @q,url: searches_result_path do |f| %>
 
       <div class="field">
@@ -19,6 +19,15 @@
         <%= f.submit "検索",class: "btn btn-primary" %>
       </div>
     <% end %>
+    </div>
+    <div class = "recommended_areas_container">
+      <h2>おすすめのエリア</h2>
+      <div class = "recommended_areas_links">
+        <%= link_to "東京", controller: "searches", action: "result", q: {address_start: "東京都"}, class: "area_link" %>
+        <%= link_to "大阪", controller: "searches", action: "result", q: {address_start: "大阪府"}, class: "area_link" %>
+        <%= link_to "京都", controller: "searches", action: "result", q: {address_start: "京都府"}, class: "area_link" %>
+        <%= link_to "札幌", controller: "searches", action: "result", q: {address_cont: "札幌"}, class: "area_link" %>
+      </div>
     </div>
   </div>
 </div>

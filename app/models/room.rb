@@ -16,4 +16,11 @@ class Room < ApplicationRecord
   validates :detail, presence: true
   validates :address, presence: true
   validates :price, presence: true
+  validate :price_proper?
+
+  def price_proper?
+    if price < 1
+      errors.add(:price,"は1以上の数字(半角)を入力して下さい。")
+    end
+  end
 end

@@ -19,3 +19,13 @@ h1{
   font-size: 60px;
   word-break: keep-all;
 }
+
+h2{
+  border-bottom: 5px solid orange;
+  width: fit-content;
+}
+
+.area_link{
+  display: block;
+  padding: 0 100px;
+}
