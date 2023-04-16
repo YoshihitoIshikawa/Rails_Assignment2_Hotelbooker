@@ -1,0 +1,19 @@
+<div class = "account_container">
+  <div class = "account_container_title">
+    <h3>設定</h3>
+  </div>
+  <div class = "account_container_changer">
+    <table>
+      <tr>
+        <th><%= link_to "アカウント", :users_account %></th>
+        <th><%= link_to "プロフィール", :users_profile %></th>
+      </tr>
+    </table>
+  </div>
+  <div class = "account_container_data">
+    <h3>アカウント</h3>
+    <a><%= link_to "編集", :edit_user_registration %></a>
+    <p>メールアドレス：<%= @user.email %></p>
+    <p>パスワード：**********</p>
+  </div>
+</div>

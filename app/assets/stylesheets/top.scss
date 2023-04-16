@@ -1,0 +1,31 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.body{
+  background-image: image-url("mizsuho170920000_TP_V.jpg");
+  background-size: 100% 100%;
+  height: 800px;
+  width: 100%;
+  display: inline-block;
+}
+
+.top_container{
+  color: ivory;
+  margin-top: 100px;
+  margin-left: 300px;
+}
+
+h1{
+  font-size: 60px;
+  word-break: keep-all;
+}
+
+h2{
+  border-bottom: 5px solid orange;
+  width: fit-content;
+}
+
+.area_link{
+  display: block;
+  padding: 0 100px;
+}

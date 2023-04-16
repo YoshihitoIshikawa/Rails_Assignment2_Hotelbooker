@@ -1,0 +1,26 @@
+<div class = "account_container">
+  <div class = "account_container_title">
+    <h3>設定</h3>
+  </div>
+  <div class = "account_container_changer">
+    <table>
+      <tr>
+        <th><%= link_to "アカウント", :users_account %></th>
+        <th><%= link_to "プロフィール", :users_profile %></th>
+      </tr>
+    </table>
+  </div>
+  <div class = "account_container_data">
+    <h3>プロフィール</h3>
+    <%= link_to "編集", :profile_edit %>
+    <p>名前：<%= @user.name %></p>
+    <p>アイコン画像：
+      <% if @user.image? %>
+        <%= image_tag @user.image.url %>
+      <% else %>
+        <%= image_tag ("https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png") %>
+      <% end %>
+    </p>
+    <p>自己紹介：<%= @user.introduction %></p>
+  </div>
+</div>

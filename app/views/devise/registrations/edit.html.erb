@@ -1,0 +1,41 @@
+<div class = "container">
+  <h2>編集</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :password %> <i>(変更しない場合は空欄にしてください。)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> 文字以上で入力して下さい。</em>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password %> <i>(変更を確認する為、現在のパスワードを入力して下さい。)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "変更", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= link_to "キャンセル", :users_account %>
+</div>

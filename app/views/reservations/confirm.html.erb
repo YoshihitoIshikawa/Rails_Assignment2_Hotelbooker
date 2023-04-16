@@ -1,0 +1,22 @@
+<div class = "reservation_confirm_container">
+  <h3>予約内容の確認</h3>
+
+  <p>チェックイン日：<%= @reservation.check_in.to_s(:date_jp) %></p>
+  <p>チェックアウト日：<%= @reservation.check_out.to_s(:date_jp) %></p>
+  <p>人数：<%= @reservation.number_of_people %>人</p>
+  <p>日数：<%= @reservation.number_of_days %>日</p>
+  <p>合計金額：¥<%= @reservation.total_price.to_s(:delimited) %></p>
+
+  <%= form_with model: @reservation do |f| %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :check_in, value: @reservation.check_in %>
+    <%= f.hidden_field :check_out, value: @reservation.check_out %>
+    <%= f.hidden_field :number_of_people, value: @reservation.number_of_people %>
+    <%= f.hidden_field :number_of_days, value: @reservation.number_of_days %>
+    <%= f.hidden_field :total_price, value: @reservation.total_price %>
+    <p>上記内容で正しければ「確定」ボタンを押して下さい。</p>
+    <%= f.submit "確定" %>
+    <%= link_to "キャンセル", room_path(@room) %>
+  <% end %>
+</div>
